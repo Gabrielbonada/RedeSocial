@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Cadastro</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#111;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+background:#222;
+padding:30px;
+border-radius:10px;
+width:300px;
+color:white;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:none;
+border-radius:5px;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#00ff88;
+border:none;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Criar conta</h2>
+
+<input id="nome" placeholder="Nome">
+<input id="email" placeholder="Email">
+<input id="senha" type="password" placeholder="Senha">
+
+<button onclick="registrar()">Cadastrar</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script src="js/register.js"></script>
+
+</body>
+</html>
