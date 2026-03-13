@@ -3,7 +3,7 @@ async function login(){
 const email = document.getElementById("email").value
 const senha = document.getElementById("senha").value
 
-const resposta = await fetch("/login",{
+const resposta = await fetch("/auth/login",{
 
 method:"POST",
 

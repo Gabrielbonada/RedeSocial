@@ -4,7 +4,7 @@ const nome = document.getElementById("nome").value
 const email = document.getElementById("email").value
 const senha = document.getElementById("senha").value
 
-const resposta = await fetch("/register",{
+const resposta = await fetch("/auth/register",{
 
 method:"POST",
 

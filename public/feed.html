@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/feed.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- BOXICONS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONTS (opcional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+
+
+<body class="darkmode">
+    <nav class="main-menu">
+        <div>
+            <div class="user-info">
+                <img id="fotoUsuario"
+                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e5a707f4-d5ac-4f30-afd8-4961ae353dbc"
+                    alt="user" />
+                <p id="nomeUsuario">Carregando...</p>
+            </div>
+            <ul>
+                <li class="nav-item active">
+                    <a href="#">
+                        <i class="fa fa-user nav-icon"></i>
+                        <span class="nav-text">Perfil</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="fa fa-map nav-icon"></i>
+                        <span class="nav-text">Explorar</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="fa fa-arrow-trend-up nav-icon"></i>
+                        <span class="nav-text">Trending</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="fa-solid fa-chart-simple nav-icon"></i>
+                        <span class="nav-text">Analytics</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="fa fa-heart nav-icon"></i>
+                        <span class="nav-text">Favorito</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="fa-solid fa-pen-to-square nav-icon"></i>
+                        <span class="nav-text"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <ul>
+            <li class="nav-item">
+                <a href="#">
+                    <i class="fa fa-gear nav-icon"></i>
+                    <span class="nav-text">Configurações</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#">
+                    <i class="fa fa-right-from-bracket nav-icon"></i>
+                    <span class="nav-text">Sair</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="content">
+        <div class="left-content">
+            <div class="search-and-check">
+                <form class="search-box">
+                    <input type="text" placeholder="Procurar comunidade" />
+                    <i class="bx bx-search"></i>
+                </form>
+                <div class="interaction-control-mobile interactions">
+                    <i class="fa-regular fa-envelope notified"></i>
+                    <i class="fa-regular fa-bell notified"></i>
+                    <div class="toggle" onclick="switchTheme()">
+                        <div class="mode-icon moon">
+                            <i class="bx bxs-moon"></i>
+                        </div>
+                        <div class="mode-icon sun hidden">
+                            <i class="bx bxs-sun"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header">
+
+            </div>
+
+            <div class="upcoming-events">
+                <h1 style="text-align: center;">Posts</h1>
+                <div class="event-container">
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <img src="https://t.ctcdn.com.br/Z6uhyd8DKac3e9gM5LHzlH-Ii8g=/340x265:1654x1005/900x675/smart/i521747.jpeg"
+                                alt="" />
+
+                            <i class="bx bx-heart like-btn"></i>
+                        </div>
+                        <div class="event-content">
+
+                            <h2>Nome da comunidade </h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi mollitia ullam consectetur
+                                odit quod. Molestias est reiciendis nostrum laborum molestiae, iure, nam odio nesciunt,
+                                ex deleniti excepturi error! Nemo, possimus!</p>
+                        </div>
+                        <div class="event-footer">
+                            <p style="background-color:#e48e2c">TAG</p>
+                            <div class="btn-group">
+                                <button>Ver Post </button>
+                                <button><i class="fa-solid fa-comments"></i></button>
+                                <div class="share">
+
+                                    <ul class="popup">
+                                        <li>
+                                            <a href="#" style="color: rgb(79, 153, 213)"><i
+                                                    class="bx bxl-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="color: rgb(34, 173, 34)"><i
+                                                    class="bx bxl-whatsapp"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGFuaW1lfGVufDB8fDB8fHww"
+                                alt="" />
+
+                            <i class="bx bxs-heart like-btn"></i>
+                        </div>
+                        <div class="event-content">
+                            <h2>nome da comunidade</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi mollitia ullam consectetur
+                                odit quod. Molestias est reiciendis nostrum laborum molestiae, iure, nam odio nesciunt,
+                                ex deleniti excepturi error! Nemo, possimus!</p>
+                        </div>
+                        <div class="event-footer">
+                            <p style="background-color: #582bac">TAG</p>
+                            <div class="btn-group">
+                                <button>Comentarios</button>
+                                <button>Comentarios</button>
+                                <div class="share">
+
+                                    <ul class="popup">
+                                        <li>
+                                            <a href="#" style="color: rgb(79, 153, 213)"><i
+                                                    class="bx bxl-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="color: rgb(34, 173, 34)"><i
+                                                    class="bx bxl-whatsapp"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <img src="https://media.istockphoto.com/id/509359318/pt/foto/criar-de-banda-desenhada.webp?a=1&b=1&s=612x612&w=0&k=20&c=e4P_TXrsmgH0y0R2K3rutKIBlln0DZap_rYDv1y4jDc="
+                                alt="" />
+
+                            <i class="bx bx-heart like-btn"></i>
+                        </div>
+                        <div class="event-content">
+                            <h2>Nome da comunidade</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi mollitia ullam consectetur
+                                odit quod. Molestias est reiciendis nostrum laborum molestiae, iure, nam odio nesciunt,
+                                ex deleniti excepturi error! Nemo, possimus!</p>
+                        </div>
+                        <div class="event-footer">
+                            <p style="background-color: #e48e2c">TAG</p>
+                            <div class="btn-group">
+                                <button> Comentarios </button>
+                                <button> Comentarios </button>
+                                <div class="share">
+
+                                    <ul class="popup">
+                                        <li>
+                                            <a href="#" style="color: rgb(79, 153, 213)"><i
+                                                    class="bx bxl-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="color: rgb(34, 173, 34)"><i
+                                                    class="bx bxl-whatsapp"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2lkYWRlfGVufDB8fDB8fHww"
+                                alt="" />
+
+                            <i class="bx bx-heart like-btn"></i>
+                        </div>
+                        <div class="event-content">
+                            <h2>Nome da comunidade </h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi mollitia ullam consectetur
+                                odit quod. Molestias est reiciendis nostrum laborum molestiae, iure, nam odio nesciunt,
+                                ex deleniti excepturi error! Nemo, possimus!</p>
+                        </div>
+                        <div class="event-footer">
+                            <p style="background-color: #582bac">TAG</p>
+                            <div class="btn-group">
+                                <button> Comentarios </button>
+                                <button> Comentarios </button>
+                                <div class="share">
+
+                                    <ul class="popup">
+                                        <li>
+                                            <a href="#" style="color: rgb(79, 153, 213)"><i
+                                                    class="bx bxl-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="color: rgb(34, 173, 34)"><i
+                                                    class="bx bxl-whatsapp"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <img src="https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2lkYWRlfGVufDB8fDB8fHww"
+                                alt="" />
+
+                            <i class="bx bx-heart like-btn"></i>
+                        </div>
+                        <div class="event-content">
+                            <h2>Nome da comunidade</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi mollitia ullam consectetur
+                                odit quod. Molestias est reiciendis nostrum laborum molestiae, iure, nam odio nesciunt,
+                                ex deleniti excepturi error! Nemo, possimus!</p>
+                        </div>
+                        <div class="event-footer">
+                            <p style="background-color: #b31a4d">TAG</p>
+                            <div class="btn-group">
+                                <button> Comentarios </button>
+                                <button> Comentarios </button>
+                                <div class="share">
+
+                                    <ul class="popup">
+                                        <li>
+                                            <a href="#" style="color: rgb(79, 153, 213)"><i
+                                                    class="bx bxl-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="color: rgb(34, 173, 34)"><i
+                                                    class="bx bxl-whatsapp"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <img src="https://plus.unsplash.com/premium_photo-1664304752635-3e0d8d8185e3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D"
+                                alt="" />
+
+                            <i class="bx bx-heart like-btn"></i>
+                        </div>
+                        <div class="event-content">
+                            <h2>Abstract Art Class</h2>
+                            <p>Artistic Horizon Studio</p>
+                        </div>
+                        <div class="event-footer">
+                            <p style="background-color: #582bac">TAG</p>
+                            <div class="btn-group">
+                                <button> Comentarios </button>
+                                <button> Comentarios </button>
+                                <div class="share">
+
+                                    <ul class="popup">
+                                        <li>
+                                            <a href="#" style="color: rgb(79, 153, 213)"><i
+                                                    class="bx bxl-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="color: rgb(34, 173, 34)"><i
+                                                    class="bx bxl-whatsapp"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2Fyc3xlbnwwfHwwfHx8MA%3D%3D"
+                                alt="" />
+
+                            <i class="bx bxs-heart like-btn"></i>
+                        </div>
+                        <div class="event-content">
+                            <h2>Harry Potter Film Concert Series</h2>
+                            <p>Overture Hall</p>
+                        </div>
+                        <div class="event-footer">
+                            <p style="background-color: #e48e2c">TAG</p>
+                            <div class="btn-group">
+                                <button> Comentarios </button>
+                                <button> Comentarios </button>
+                                <div class="share">
+
+                                    <ul class="popup">
+                                        <li>
+                                            <a href="#" style="color: rgb(79, 153, 213)"><i
+                                                    class="bx bxl-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="color: rgb(34, 173, 34)"><i
+                                                    class="bx bxl-whatsapp"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card event-card">
+                        <div class="event-header">
+                            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNhcnN8ZW58MHx8MHx8fDA%3D"
+                                alt="" />
+
+                            <i class="bx bx-heart like-btn"></i>
+                        </div>
+                        <div class="event-content">
+                            <h2>Wimbledon Championships - 2024</h2>
+                            <p>Tennis & Croquet Club</p>
+                        </div>
+                        <div class="event-footer">
+                            <p style="background-color: #4a920f">TAG</p>
+                            <div class="btn-group">
+                                <button> Comentarios </button>
+                                <button> Comentarios </button>
+                                <div class="share">
+
+                                    <ul class="popup">
+                                        <li>
+                                            <a href="#" style="color: rgb(79, 153, 213)"><i
+                                                    class="bx bxl-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" style="color: rgb(34, 173, 34)"><i
+                                                    class="bx bxl-whatsapp"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews">
+                <h1>Past Event Reviews</h1>
+                <div class="review-container">
+                    <div class="card review-card">
+                        <h2>Metal Sculpture Workshop</h2>
+                        <div class="ratings">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bx-star"></i>
+                            <i class="bx bx-star"></i>
+                        </div>
+                        <p>
+                            The metal sculpture workshop was a bit tough because shaping the
+                            metal was harder than expected. It would have been better with
+                            simpler instructions on how to mold the material.
+                        </p>
+                    </div>
+
+                    <div class="card review-card">
+                        <h2>Electro Groove Night</h2>
+                        <div class="ratings">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star-half"></i>
+                        </div>
+                        <p>
+                            The Electro Groove Night was so much fun! The music was awesome,
+                            and everyone had a great time dancing – a fantastic night out
+                            for sure!
+                        </p>
+                    </div>
+
+                    <div class="card review-card">
+                        <h2>Wimbledon Championships - 2023 (Final)</h2>
+                        <div class="ratings">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                        <p>
+                            Watching the Wimbledon final between Novak Djokovic and Carlos
+                            Alcaraz was so exciting! The intense match and incredible skills
+                            of the players made it a thrilling experience that I'll always
+                            remember.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+
+</body>
+<script>
+
+    async function carregarUsuario() {
+
+        const token = localStorage.getItem("token")
+
+        if (!token) {
+            window.location.href = "login.html"
+            return
+        }
+
+        const resposta = await fetch("/auth/me", {
+
+            headers: {
+                Authorization: "Bearer " + token
+            }
+
+        })
+
+        const usuario = await resposta.json()
+
+        document.getElementById("nomeUsuario").innerText = usuario.nome
+
+        if (usuario.foto) {
+            document.getElementById("fotoUsuario").src = usuario.foto
+        }
+
+    }
+
+    carregarUsuario()
+</script>
+
+
+
+</html>

@@ -2,9 +2,9 @@ const jwt = require("jsonwebtoken");
 
 const SECRET = "segredo_super_secreto";
 
-function authMiddleware(req, res, next) {
+module.exports = function (req, res, next) {
 
-    const token = req.headers.authorization;
+    const token = req.headers["authorization"];
 
     if (!token) {
         return res.status(401).json({ erro: "Token não enviado" });
@@ -18,10 +18,10 @@ function authMiddleware(req, res, next) {
 
         next();
 
-    } catch (erro) {
+    } catch {
+
         res.status(401).json({ erro: "Token inválido" });
+
     }
 
-}
-
-module.exports = authMiddleware;
+};

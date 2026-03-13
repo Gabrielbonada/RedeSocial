@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/Gabrielbonada/RedeSocial#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.2.4",
     "moongose": "^1.0.0"
   }
 }
