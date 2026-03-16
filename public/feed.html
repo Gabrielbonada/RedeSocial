@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="./css/listacomunidade.css">
 
-    <title>Document</title>
+    <title>Explorar</title>
 </head>
 
 
@@ -26,10 +26,15 @@
     <nav class="main-menu">
         <div>
             <div class="user-info">
+
                 <img id="fotoUsuario"
                     src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e5a707f4-d5ac-4f30-afd8-4961ae353dbc"
-                    alt="user" />
+                    alt="user" style="cursor:pointer" />
+
+                <input type="file" id="trocarFoto" accept="image/*" style="display:none">
+
                 <p id="nomeUsuario">Carregando...</p>
+
             </div>
             <ul>
                 <li class="nav-item active">
@@ -85,9 +90,9 @@
             </li>
 
             <li class="nav-item">
-                <a href="#">
+                <a href="login.html" id="sair">
                     <i class="fa fa-right-from-bracket nav-icon"></i>
-                    <span class="nav-text">Sair</span>
+                    <span  class="nav-text">Sair</span>
                 </a>
             </li>
         </ul>
@@ -173,8 +178,8 @@
                         <div class="event-footer">
                             <p style="background-color: #582bac">TAG</p>
                             <div class="btn-group">
-                                <button>Comentarios</button>
-                                <button>Comentarios</button>
+                                <button>Ver Post </button>
+                                <button><i class="fa-solid fa-comments"></i></button>
                                 <div class="share">
 
                                     <ul class="popup">
@@ -208,8 +213,8 @@
                         <div class="event-footer">
                             <p style="background-color: #e48e2c">TAG</p>
                             <div class="btn-group">
-                                <button> Comentarios </button>
-                                <button> Comentarios </button>
+                                <button>Ver Post </button>
+                                <button><i class="fa-solid fa-comments"></i></button>
                                 <div class="share">
 
                                     <ul class="popup">
@@ -243,8 +248,8 @@
                         <div class="event-footer">
                             <p style="background-color: #582bac">TAG</p>
                             <div class="btn-group">
-                                <button> Comentarios </button>
-                                <button> Comentarios </button>
+                                <button>Ver Post </button>
+                                <button><i class="fa-solid fa-comments"></i></button>
                                 <div class="share">
 
                                     <ul class="popup">
@@ -278,8 +283,8 @@
                         <div class="event-footer">
                             <p style="background-color: #b31a4d">TAG</p>
                             <div class="btn-group">
-                                <button> Comentarios </button>
-                                <button> Comentarios </button>
+                                <button>Ver Post </button>
+                                <button><i class="fa-solid fa-comments"></i></button>
                                 <div class="share">
 
                                     <ul class="popup">
@@ -311,8 +316,8 @@
                         <div class="event-footer">
                             <p style="background-color: #582bac">TAG</p>
                             <div class="btn-group">
-                                <button> Comentarios </button>
-                                <button> Comentarios </button>
+                                <button>Ver Post </button>
+                                <button><i class="fa-solid fa-comments"></i></button>
                                 <div class="share">
 
                                     <ul class="popup">
@@ -344,8 +349,8 @@
                         <div class="event-footer">
                             <p style="background-color: #e48e2c">TAG</p>
                             <div class="btn-group">
-                                <button> Comentarios </button>
-                                <button> Comentarios </button>
+                                <button>Ver Post </button>
+                                <button><i class="fa-solid fa-comments"></i></button>
                                 <div class="share">
 
                                     <ul class="popup">
@@ -377,8 +382,8 @@
                         <div class="event-footer">
                             <p style="background-color: #4a920f">TAG</p>
                             <div class="btn-group">
-                                <button> Comentarios </button>
-                                <button> Comentarios </button>
+                                <button>Ver Post </button>
+                                <button><i class="fa-solid fa-comments"></i></button>
                                 <div class="share">
 
                                     <ul class="popup">
@@ -461,8 +466,10 @@
 
 
 </body>
+<script src="./js/TrocarDeimagem.js"></script>
 <script src="./js/menuProfile.js"></script>
 <script src="./js/listaDecomunidade.js"></script>
+<script src="./js/sair.js"></script>
 <script>
 
     async function carregarUsuario() {
@@ -486,7 +493,11 @@
 
         document.getElementById("nomeUsuario").innerText = usuario.nome
 
-        if (usuario.foto) {
+        const fotoSalva = localStorage.getItem("fotoPerfil")
+
+        if (fotoSalva) {
+            document.getElementById("fotoUsuario").src = fotoSalva
+        } else if (usuario.foto) {
             document.getElementById("fotoUsuario").src = usuario.foto
         }
 

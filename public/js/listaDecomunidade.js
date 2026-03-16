@@ -12,15 +12,26 @@ async function carregarComunidades(){
 
    container.innerHTML += `
    
-   <div class="community-card">
+  <div class="community-card">
 
-       <img src="${com.imagem}" class="community-img">
+    <img src= ${com.imagem} class="community-img">
 
-       <h3>${com.nome}</h3>
+    <div class="content-right">
 
-       <p>${com.descricao}</p>
+        <div>
+            <h3 class="community-name">${com.nome}</h3>
+            <p class="community-desc">
+                ${com.descricao}
+            </p>
+        </div>
 
-   </div>
+        <button class="join-btn">
+            Entrar
+        </button>
+
+    </div>
+
+</div>
    
    `
 

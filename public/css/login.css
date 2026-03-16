@@ -49,25 +49,23 @@
   }
 
   .mountain {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 400px;
-      /* antes 260px */
-      background: #ff8c70;
-      box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.1);
-      clip-path: polygon(0% 100%, 15% 30%, 30% 70%, 50% 40%, 70% 70%, 90% 55%, 100% 100%);
+     position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(180deg, #ff9a9e, #fad0c4);
+    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.1);
+    clip-path: polygon(0% 100%, 15% 0%, 30% 70%, 50% 40%, 70% 70%, 90% 55%, 100% 100%);
   }
 
   .mountain2 {
       position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 360px;
-      /* antes 230px */
-      background: #ff6a4d;
-      box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.1);
-      clip-path: polygon(0% 100%, 20% 30%, 36% 75%, 60% 20%, 80% 60%, 100% 100%);
+    bottom: 0;
+    width: 100%;
+    height: 360px;
+    background: linear-gradient(180deg, #ff7e5f, #feb47b);
+    box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.1);
+    clip-path: polygon(0% 100%, 20% 30%, 36% 75%, 60% 20%, 80% 60%, 100% 100%);
   }
 
   /* NUVENS */

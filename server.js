@@ -19,6 +19,7 @@ const CommunityRoutes = require('./routes/comunidades.js')
 app.use("/auth", authRoutes);
 app.use("/posts", postRoutes);
 app.use("/comunidades", CommunityRoutes);
+app.use("/uploads", express.static("uploads"));
 
 // abrir index.html
 app.get("/", (req, res) => {

@@ -3,10 +3,36 @@ const router = express.Router();
 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const path = require("path");
 
 const User = require("../models/user");
+const multer = require("multer")
 
 const SECRET = "segredo_super_secreto";
+
+
+const storage = multer.diskStorage({
+
+destination: function(req,file,cb){
+cb(null,"uploads/")
+},
+
+filename: function(req,file,cb){
+
+const token = req.headers.authorization.split(" ")[1]
+const decoded = jwt.verify(token, SECRET)
+
+const nome = decoded.id + path.extname(file.originalname)
+
+cb(null,nome)
+
+}
+
+})
+
+const upload = multer({storage})
+
+
 
 router.post("/register", async (req, res) => {
 
@@ -33,6 +59,36 @@ router.post("/register", async (req, res) => {
     }
 
 });
+
+router.post("/foto", upload.single("foto"), async (req,res)=>{
+
+try{
+
+const token = req.headers.authorization.split(" ")[1]
+
+const decoded = jwt.verify(token, SECRET)
+
+if(!req.file){
+return res.status(400).json({erro:"Nenhuma imagem enviada"})
+}
+
+const caminhoFoto = "/uploads/" + req.file.filename
+
+
+
+await User.findByIdAndUpdate(decoded.id,{
+foto:caminhoFoto
+})
+
+res.json({foto:caminhoFoto})
+
+}catch{
+
+res.status(500).json({erro:"Erro ao atualizar foto"})
+
+}
+
+})
 
 router.post("/login", async (req, res) => {
 
