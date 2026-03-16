@@ -1,56 +1,123 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+
+    <link rel="stylesheet" href="./css/login.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
+
 <body>
 
-<h2>Cadastro</h2>
+    <div class="login-page">
 
-<input type="text" id="nome" placeholder="Nome">
-<br><br>
+        <button class="dark-toggle" onclick="toggleDarkMode()">
+            <i id="theme-icon" class="fa-solid fa-moon"></i>
+        </button>
 
-<input type="email" id="email" placeholder="Email">
-<br><br>
+        <div class="sun"></div>
 
-<input type="password" id="senha" placeholder="Senha">
-<br><br>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
 
-<button onclick="cadastrar()">Cadastrar</button>
+        <div class="mountain"></div>
+        <div class="mountain2"></div>
+        <div class="mountain3"></div>
 
-<script>
+        <div class="login-card">
 
-async function cadastrar(){
+            <div class="logo">SocialHub</div>
 
-    const nome = document.getElementById("nome").value
-    const email = document.getElementById("email").value
-    const senha = document.getElementById("senha").value
+            <h2>Criar conta</h2>
 
-    const resposta = await fetch("http://localhost:3000/auth/register", {
+            <div class="input-group">
+                <input type="text" id="nome" placeholder="Nome">
+            </div>
 
-        method: "POST",
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email">
+            </div>
 
-        headers:{
-            "Content-Type":"application/json"
-        },
+            <div class="input-group">
+                <input type="password" id="senha" placeholder="Senha">
+            </div>
 
-        body: JSON.stringify({
-            nome,
-            email,
-            senha
-        })
+            <button class="login-btn" onclick="cadastrar()">
+                Cadastrar
+            </button>
 
-    })
+            <div class="extra-links">
+                <p>Já tem conta? <a href="login.html">Entrar</a></p>
+            </div>
 
-    const dados = await resposta.json()
+        </div>
 
-    console.log(dados)
+    </div>
 
-    alert("Usuário cadastrado!")
+    <script>
+        
+        async function cadastrar() {
 
-}
+            const nome = document.getElementById("nome").value
+            const email = document.getElementById("email").value
+            const senha = document.getElementById("senha").value
 
-</script>
+            const resposta = await fetch("http://localhost:3000/auth/register", {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    nome,
+                    email,
+                    senha
+                })
+
+            })
+
+            const dados = await resposta.json()
+
+            console.log(dados)
+
+            alert("Usuário cadastrado!")
+            window.location.href = "login.html"
+
+        }
+
+        function toggleDarkMode() {
+
+            document.body.classList.toggle("dark-mode")
+
+            const icon = document.getElementById("theme-icon")
+
+            icon.classList.add("rotate")
+
+            setTimeout(() => {
+                icon.classList.remove("rotate")
+            }, 600)
+
+            if (document.body.classList.contains("dark-mode")) {
+                icon.classList.remove("fa-moon")
+                icon.classList.add("fa-sun")
+            } else {
+                icon.classList.remove("fa-sun")
+                icon.classList.add("fa-moon")
+            }
+
+        }
+
+
+    </script>
 
 </body>
+
 </html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/feed.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- BOXICONS -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONTS (opcional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/listacomunidade.css">
+
+    <title>Document</title>
+</head>
+
+
+<body class="darkmode">
+    <nav class="main-menu">
+        <div>
+            <div class="user-info">
+                <img id="fotoUsuario"
+                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e5a707f4-d5ac-4f30-afd8-4961ae353dbc"
+                    alt="user" />
+                <p id="nomeUsuario">Carregando...</p>
+            </div>
+            <ul>
+                <li class="nav-item active">
+                    <a href="perfil.html">
+                        <i class="fa fa-user nav-icon"></i>
+                        <span class="nav-text">Perfil</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="feed.html">
+                        <i class="fa fa-map nav-icon"></i>
+                        <span class="nav-text">Explorar</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="indexcomunidade.html">
+                        <i class="fa fa-arrow-trend-up nav-icon"></i>
+                        <span class="nav-text">Comunidades</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="fa-solid fa-chart-simple nav-icon"></i>
+                        <span class="nav-text">Analytics</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="favoritos.html">
+                        <i class="fa fa-heart nav-icon"></i>
+                        <span class="nav-text">Favorito</span>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#">
+                        <i class="fa-solid fa-pen-to-square nav-icon"></i>
+                        <span class="nav-text"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <ul>
+            <li class="nav-item">
+                <a href="configurcoes.html">
+                    <i class=" fa fa-gear nav-icon"></i>
+                    <span class="nav-text">Configurações</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#">
+                    <i class="fa fa-right-from-bracket nav-icon"></i>
+                    <span class="nav-text">Sair</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="content">
+        <div class="left-content">
+            <div class="search-and-check">
+                <form class="search-box">
+                    <input type="text" placeholder="Procurar comunidade" />
+                    <i class="bx bx-search"></i>
+                </form>
+                <div class="interaction-control-mobile interactions">
+                    <i class="fa-regular fa-envelope notified"></i>
+                    <i class="fa-regular fa-bell notified"></i>
+                    <div class="toggle" onclick="switchTheme()">
+                        <div class="mode-icon moon">
+                            <i class="bx bxs-moon"></i>
+                        </div>
+                        <div class="mode-icon sun hidden">
+                            <i class="bx bxs-sun"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header">
+
+            </div>
+
+            <div class="upcoming-events">
+                 <h1>Lista das comunidades</h1>
+                <div id="lista-comunidades"></div>
+               
+            </div>
+
+            <div class="reviews">
+               
+                <div class="review-container">
+                    <div class="card review-card">
+                        <h2>Metal Sculpture Workshop</h2>
+                        <div class="ratings">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bx-star"></i>
+                            <i class="bx bx-star"></i>
+                        </div>
+                        <p>
+                            The metal sculpture workshop was a bit tough because shaping the
+                            metal was harder than expected. It would have been better with
+                            simpler instructions on how to mold the material.
+                        </p>
+                    </div>
+
+                    <div class="card review-card">
+                        <h2>Electro Groove Night</h2>
+                        <div class="ratings">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star-half"></i>
+                        </div>
+                        <p>
+                            The Electro Groove Night was so much fun! The music was awesome,
+                            and everyone had a great time dancing – a fantastic night out
+                            for sure!
+                        </p>
+                    </div>
+
+                    <div class="card review-card">
+                        <h2>Wimbledon Championships - 2023 (Final)</h2>
+                        <div class="ratings">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                        <p>
+                            Watching the Wimbledon final between Novak Djokovic and Carlos
+                            Alcaraz was so exciting! The intense match and incredible skills
+                            of the players made it a thrilling experience that I'll always
+                            remember.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+
+</body>
+<script src="./js/menuProfile.js"></script>
+<script src="./js/listaDecomunidade.js"></script>
+<script>
+
+    async function carregarUsuario() {
+
+        const token = localStorage.getItem("token")
+
+        if (!token) {
+            window.location.href = "login.html"
+            return
+        }
+
+        const resposta = await fetch("/auth/me", {
+
+            headers: {
+                Authorization: "Bearer " + token
+            }
+
+        })
+
+        const usuario = await resposta.json()
+
+        document.getElementById("nomeUsuario").innerText = usuario.nome
+
+        if (usuario.foto) {
+            document.getElementById("fotoUsuario").src = usuario.foto
+        }
+
+    }
+
+    carregarUsuario()
+</script>
+
+
+
+</html>

@@ -16,6 +16,8 @@
     <!-- GOOGLE FONTS (opcional) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="./css/listacomunidade.css">
+
     <title>Document</title>
 </head>
 
@@ -31,23 +33,23 @@
             </div>
             <ul>
                 <li class="nav-item active">
-                    <a href="#">
+                    <a href="perfil.html">
                         <i class="fa fa-user nav-icon"></i>
                         <span class="nav-text">Perfil</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#">
+                    <a href="feed.html">
                         <i class="fa fa-map nav-icon"></i>
                         <span class="nav-text">Explorar</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="#">
+                    <a href="indexcomunidade.html">
                         <i class="fa fa-arrow-trend-up nav-icon"></i>
-                        <span class="nav-text">Trending</span>
+                        <span class="nav-text">Comunidades</span>
                     </a>
                 </li>
 
@@ -59,7 +61,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="#">
+                    <a href="favoritos.html">
                         <i class="fa fa-heart nav-icon"></i>
                         <span class="nav-text">Favorito</span>
                     </a>
@@ -76,8 +78,8 @@
 
         <ul>
             <li class="nav-item">
-                <a href="#">
-                    <i class="fa fa-gear nav-icon"></i>
+                <a href="configurcoes.html">
+                    <i class=" fa fa-gear nav-icon"></i>
                     <span class="nav-text">Configurações</span>
                 </a>
             </li>
@@ -397,7 +399,8 @@
             </div>
 
             <div class="reviews">
-                <h1>Past Event Reviews</h1>
+                <h1>Lista das comunidades</h1>
+                <div id="lista-comunidades"></div>
                 <div class="review-container">
                     <div class="card review-card">
                         <h2>Metal Sculpture Workshop</h2>
@@ -458,6 +461,8 @@
 
 
 </body>
+<script src="./js/menuProfile.js"></script>
+<script src="./js/listaDecomunidade.js"></script>
 <script>
 
     async function carregarUsuario() {

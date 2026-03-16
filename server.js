@@ -14,9 +14,11 @@ mongoose.connect("mongodb://localhost:27017/redesocial")
 
 const authRoutes = require("./routes/auth.js");
 const postRoutes = require("./routes/posts.js");
+const CommunityRoutes = require('./routes/comunidades.js')
 
 app.use("/auth", authRoutes);
 app.use("/posts", postRoutes);
+app.use("/comunidades", CommunityRoutes);
 
 // abrir index.html
 app.get("/", (req, res) => {

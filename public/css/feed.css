@@ -1,30 +1,30 @@
  @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&family=Roboto:wght@300;400;500;700&display=swap");
 
  :root {
- 
-    --bg-body: #fff6f3;
-    --primary-color: #3b1f1f;
-    --primary-hover-color: #b35b4f;
-    --scrollbar-color: rgba(255, 120, 80, 0.4);
-    --card-bg-color: #ffffff;
-    --pop-bg-color: rgba(255, 235, 230, 0.9);
-    --star-color: #ffb703;
-    --border-color: #ffd6cc;
-    --shadow-color: rgba(0, 0, 0, 0.08);
-    --accent-color: #ff5a3c;
-}
- 
+
+     --bg-body: #fff6f3;
+     --primary-color: #3b1f1f;
+     --primary-hover-color: #b35b4f;
+     --scrollbar-color: rgba(255, 120, 80, 0.4);
+     --card-bg-color: #ffffff;
+     --pop-bg-color: rgba(255, 235, 230, 0.9);
+     --star-color: #ffb703;
+     --border-color: #ffd6cc;
+     --shadow-color: rgba(0, 0, 0, 0.08);
+     --accent-color: #ff5a3c;
+ }
+
 
  .darkmode {
-      --bg-body: #1b0f0f;
-    --primary-color: #ffe9e4;
-    --primary-hover-color: #ff8c7a;
-    --scrollbar-color: rgba(255, 120, 80, 0.6);
-    --card-bg-color: #2b1515;
-    --star-color: #ffb703;
-    --border-color: rgba(255, 160, 140, 0.3);
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --accent-color: #ff6a4d;
+     --bg-body: #1b0f0f;
+     --primary-color: #ffe9e4;
+     --primary-hover-color: #ff8c7a;
+     --scrollbar-color: rgba(255, 120, 80, 0.6);
+     --card-bg-color: #2b1515;
+     --star-color: #ffb703;
+     --border-color: rgba(255, 160, 140, 0.3);
+     --shadow-color: rgba(0, 0, 0, 0.3);
+     --accent-color: #ff6a4d;
  }
 
  *,
@@ -75,6 +75,7 @@
      position: relative;
      background: var(--bg-body);
      overflow: hidden;
+     transition: background 0.4s ease, color 0.4s ease;
  }
 
  /* MAIN MENU */
@@ -166,7 +167,7 @@
  .card {
      background-color: var(--card-bg-color);
      border-radius: 8px;
-     border: 2px solid rgba(169, 150, 253, 0.5);
+     border: 2px solid rgba(136, 7, 28, 0.5);
      box-shadow: 0px 4px 5px 0px var(--shadow-color),
          0px 1px 8px 0px var(--shadow-color), 0px 2px 4px -1px var(--shadow-color);
  }
@@ -252,6 +253,15 @@
      grid-auto-flow: dense;
      grid-template-rows: 2fr 0.8fr 0.5fr;
      padding: 8px;
+ }
+
+ .event-card {
+     transition: transform 0.25s ease, box-shadow 0.25s ease;
+ }
+
+ .event-card:hover {
+     transform: translateY(-6px);
+     box-shadow: 0 10px 20px var(--shadow-color);
  }
 
  /* Event Header */
@@ -354,6 +364,28 @@
      padding: 0 4px;
  }
 
+ .event-footer button:active {
+     transform: scale(0.95);
+ }
+
+ .like-btn {
+     transition: transform 0.2s ease, color 0.2s ease;
+ }
+
+ .like-btn:hover {
+     transform: scale(1.2);
+ }
+
+ .nav-item a {
+     transition: background 0.25s ease, transform 0.2s ease;
+ }
+
+ .nav-item a:hover {
+     background: rgba(255, 90, 60, 0.15);
+     transform: translateX(3px);
+ }
+
+
  .event-footer p {
      color: rgb(240, 248, 255);
      font-size: clamp(0.6rem, 3vw, 0.8rem);
@@ -362,6 +394,18 @@
      padding: 6px 10px;
      border-radius: 50px;
  }
+
+ .left-content::-webkit-scrollbar-thumb,
+ .right-content::-webkit-scrollbar-thumb,
+ body::-webkit-scrollbar-thumb {
+     background: linear-gradient(180deg,
+             var(--accent-color),
+             var(--primary-hover-color));
+     border-radius: 40px;
+ }
+ .event-footer p {
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
 
  .btn-group {
      display: inline-flex;
@@ -381,11 +425,11 @@
      cursor: pointer;
  }
 
-.event-footer button:hover {
-    background-color: #ff7a5c;
-    border: 2px solid #ff7a5c;
-    transform: scale(1.05);
-}
+ .event-footer button:hover {
+     background-color: #ff7a5c;
+     border: 2px solid #ff7a5c;
+     transform: scale(1.05);
+ }
 
  /* Share Button Popup */
 
@@ -532,17 +576,18 @@
      background-color: rgb(48, 153, 36);
  }
 
-.event-footer button {
-    background-color: #ff5a3c;
-    color: white;
-    padding: 6px 12px;
-    outline: 0;
-    border: 2px solid #ff5a3c;
-    border-radius: 6px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
+ .event-footer button {
+     background-color: #ff5a3c;
+     color: white;
+     padding: 6px 12px;
+     outline: 0;
+     border: 2px solid #ff5a3c;
+     border-radius: 6px;
+     font-weight: 600;
+     transition: all 0.3s ease;
+     cursor: pointer;
+ }
+
  /* Light/Dark Mode */
 
  .mode-icon i {

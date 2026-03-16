@@ -2,22 +2,86 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="./css/login.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
 
-<h2>Login</h2>
+    <div class="login-page">
+        <button class="dark-toggle" onclick="toggleDarkMode()">
+            <i id="theme-icon" class="fa-solid fa-moon"></i>
+        </button>
+        <div class="sun"></div>
 
-<input id="email" placeholder="Email">
-<input id="senha" type="password" placeholder="Senha">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
 
-<button onclick="login()">Entrar</button>
+        <div class="mountain"></div>
+        <div class="mountain2"></div>
+        <div class="mountain3"></div>
 
-<p id="msg"></p>
 
-<script src="./js/login.js"></script>
+        <div class="login-card">
+
+            <div class="logo">SocialHub</div>
+
+            <h2>Entrar</h2>
+
+            <div class="input-group">
+                <input id="email" placeholder="Email">
+            </div>
+
+            <div class="input-group">
+                <input id="senha" type="password" placeholder="Senha">
+            </div>
+
+            <button class="login-btn" onclick="login()">
+                Entrar
+            </button>
+
+            <p id="msg"></p>
+
+            <div class="extra-links">
+                <p>Não tem conta? <a href="register.html">Criar conta</a></p>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        function toggleDarkMode() {
+
+            document.body.classList.toggle("dark-mode")
+
+            const icon = document.getElementById("theme-icon")
+
+            icon.classList.add("rotate")
+
+            setTimeout(() => {
+                icon.classList.remove("rotate")
+            }, 600)
+
+            if (document.body.classList.contains("dark-mode")) {
+                icon.classList.remove("fa-moon")
+                icon.classList.add("fa-sun")
+            } else {
+                icon.classList.remove("fa-sun")
+                icon.classList.add("fa-moon")
+            }
+
+        }
+    </script>
+
+
+    <script src="./js/login.js"></script>
 
 </body>
+
 </html>

@@ -1,0 +1,401 @@
+  body {
+      margin: 0;
+      font-family: "Nunito", sans-serif;
+  }
+
+  .login-page {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: linear-gradient(180deg,
+              #fff6f3 0%,
+              #ffe3da 40%,
+              #ffc4b2 100%);
+
+      position: relative;
+      overflow: hidden;
+  }
+
+  /* SOL */
+  .sun {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+
+      background: radial-gradient(circle, #ffd27a, #ff9f1c);
+
+      border-radius: 50%;
+
+      top: 80px;
+      left: 30%;
+
+      box-shadow:
+          0 0 120px rgba(255, 160, 60, 0.7),
+          0 0 250px rgba(255, 160, 60, 0.3);
+
+      animation: sunGlow 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes sunGlow {
+      from {
+          transform: scale(1);
+      }
+
+      to {
+          transform: scale(1.08);
+      }
+  }
+
+  .mountain {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 400px;
+      /* antes 260px */
+      background: #ff8c70;
+      box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.1);
+      clip-path: polygon(0% 100%, 15% 30%, 30% 70%, 50% 40%, 70% 70%, 90% 55%, 100% 100%);
+  }
+
+  .mountain2 {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 360px;
+      /* antes 230px */
+      background: #ff6a4d;
+      box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.1);
+      clip-path: polygon(0% 100%, 20% 30%, 36% 75%, 60% 20%, 80% 60%, 100% 100%);
+  }
+
+  /* NUVENS */
+
+  .cloud {
+      position: absolute;
+      width: 120px;
+      height: 60px;
+      background: white;
+      border-radius: 50px;
+      opacity: 0.6;
+  }
+
+  .cloud:before,
+  .cloud:after {
+      content: "";
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+  }
+
+  .cloud:before {
+      width: 60px;
+      height: 60px;
+      top: -20px;
+      left: 15px;
+  }
+
+  .cloud:after {
+      width: 70px;
+      height: 70px;
+      top: -30px;
+      right: 10px;
+  }
+
+  .cloud1 {
+      top: 120px;
+      left: 10%;
+      animation: cloudMove 40s linear infinite;
+  }
+
+  .cloud2 {
+      top: 200px;
+      right: 10%;
+      animation: cloudMove 55s linear infinite;
+  }
+
+  @keyframes cloudMove {
+      from {
+          transform: translateX(-200px);
+      }
+
+      to {
+          transform: translateX(120vw);
+      }
+  }
+
+  /* LOGIN CARD */
+
+  .login-card {
+      width: 380px;
+      padding: 40px;
+
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(14px);
+
+      border-radius: 20px;
+      border: 1px solid rgba(255, 120, 80, 0.2);
+
+      box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.15),
+          0 5px 15px rgba(0, 0, 0, 0.1);
+
+      z-index: 10;
+
+      animation: cardEnter 0.8s ease;
+  }
+
+  @keyframes cardEnter {
+      from {
+          opacity: 0;
+          transform: translateY(40px);
+      }
+
+      to {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+
+  .logo {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #ff5a3c;
+  }
+
+  .login-card h2 {
+      text-align: center;
+      margin-bottom: 25px;
+  }
+
+  .input-group {
+      margin-bottom: 18px;
+      position: relative;
+  }
+
+  .input-group input {
+      width: 100%;
+      height: 45px;
+
+      border-radius: 10px;
+      border: 2px solid #ffd6cc;
+
+      padding: 0 12px;
+
+      font-size: 0.9rem;
+
+      transition: 0.25s;
+  }
+
+  .input-group input:focus {
+      outline: none;
+      border-color: #ff5a3c;
+
+      box-shadow: 0 0 0 3px rgba(255, 90, 60, 0.2);
+  }
+
+  /* BOTÃO VER SENHA */
+
+  .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 14px;
+      opacity: 0.6;
+  }
+
+  .login-btn {
+      width: 100%;
+      height: 45px;
+
+      background: linear-gradient(135deg, #ff6a4d, #ff3c2e);
+
+      border: none;
+      border-radius: 10px;
+
+      color: white;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+
+      box-shadow: 0 10px 20px rgba(255, 90, 60, 0.3);
+  }
+
+  .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 25px rgba(255, 90, 60, 0.4);
+  }
+
+  .extra-links {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 0.85rem;
+  }
+
+  @keyframes sunMove {
+      0% {
+          transform: translateY(0);
+      }
+
+      100% {
+          transform: translateY(20px);
+      }
+  }
+
+  .sun {
+      animation: sunMove 6s ease-in-out infinite alternate;
+  }
+
+  .extra-links a {
+      color: #ff5a3c;
+      font-weight: 600;
+      text-decoration: none;
+  }
+
+  .dark-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+
+      width: 45px;
+      height: 45px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: white;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+      transition: 0.3s;
+  }
+
+  .dark-toggle i {
+      font-size: 20px;
+      transition: transform 0.6s ease;
+  }
+
+  /* animação */
+
+  .rotate {
+      transform: rotate(180deg);
+  }
+
+  .dark-toggle:hover {
+      transform: scale(1.1);
+  }
+
+  body.dark-mode .login-page {
+
+      background: linear-gradient(180deg,
+              #0f2027 0%,
+              #203a43 50%,
+              #2c5364 100%);
+
+  }
+
+  /* LUA */
+
+  body.dark-mode .sun {
+
+      background: radial-gradient(circle, #f5f3ce, #d9d6a8);
+
+      box-shadow:
+          0 0 40px rgba(255, 255, 200, 0.4),
+          0 0 100px rgba(255, 255, 200, 0.2);
+
+  }
+
+  /* montanhas mais escuras */
+
+  body.dark-mode .mountain {
+      background: #1e3c4f;
+  }
+
+  body.dark-mode .mountain2 {
+      background: #162b3a;
+  }
+
+  /* nuvens */
+
+  body.dark-mode .cloud {
+      background: #dfe6ec;
+      opacity: 0.4;
+  }
+
+  /* LOGIN CARD DARK */
+
+  body.dark-mode .login-card {
+
+      background: rgba(20, 25, 35, 0.85);
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      color: white;
+
+      box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.6),
+          0 5px 20px rgba(0, 0, 0, 0.4);
+
+  }
+
+  body.dark-mode .logo {
+      color: #ffd27a;
+  }
+
+  body.dark-mode .login-card h2 {
+      color: white;
+  }
+
+  body.dark-mode .input-group input {
+
+      background: #1f2633;
+      border: 2px solid #2d3748;
+      color: white;
+
+  }
+
+  body.dark-mode .input-group input::placeholder {
+      color: #a0aec0;
+  }
+
+  body.dark-mode .input-group input:focus {
+
+      border-color: #ffd27a;
+
+      box-shadow: 0 0 0 3px rgba(255, 210, 122, 0.2);
+
+  }
+
+  body.dark-mode .login-btn {
+
+      background: linear-gradient(135deg, #ffd27a, #ff9f1c);
+
+      color: #1a202c;
+
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+
+  }
+
+  body.dark-mode .login-btn:hover {
+
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+
+  }
+
+  body.dark-mode .extra-links a {
+      color: #ffd27a;
+  }
