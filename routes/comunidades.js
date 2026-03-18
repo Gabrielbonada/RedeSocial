@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const Community = require("../models/comunidade");
-const auth = require("../middleware/auth")
+const auth = require("../middleware/authMiddleware.js")
 
 
 router.post("/:id/entrar", auth, async (req, res) => {
@@ -28,6 +28,49 @@ router.post("/:id/sair", auth, async (req, res) => {
         res.status(500).json({ erro: "Erro ao sair" });
     }
 });
+// Importe seu modelo de Post, se ainda não o fez
+// const Post = require("../models/post"); // Certifique-se de que o caminho está correto
+
+// Rota para obter os posts de uma comunidade
+router.get("/:id/posts", auth, async (req, res) => {
+    try {
+        const communityId = req.params.id;
+        // Supondo que seu modelo Post tenha um campo 'community' ou 'communityId'
+        const posts = await Post.find({ community: communityId }).sort({ createdAt: -1 }); // Ordena por mais recente
+
+        res.json(posts);
+    } catch (err) {
+        console.error("Erro ao buscar posts da comunidade:", err);
+        res.status(500).json({ erro: "Erro ao buscar posts da comunidade" });
+    }
+});
+
+
+// Rota para obter detalhes de uma comunidade específica
+router.get("/:id", auth, async (req, res) => {
+    try {
+        const communityId = req.params.id;
+        const userId = req.userId;
+
+        const community = await Community.findById(communityId);
+
+        if (!community) {
+            return res.status(404).json({ erro: "Comunidade não encontrada" });
+        }
+
+        // Adiciona a informação se o usuário participa ou não
+        const resultado = {
+            ...community._doc,
+            participa: community.membros.includes(userId)
+        };
+
+        res.json(resultado);
+    } catch (err) {
+        console.error("Erro ao buscar detalhes da comunidade:", err);
+        res.status(500).json({ erro: "Erro ao buscar detalhes da comunidade" });
+    }
+});
+
 
 
 // criar comunidade
@@ -50,6 +93,19 @@ router.post("/create", async (req, res) => {
 });
 
 
+// Nova rota para listar comunidades que o usuário participa
+router.get("/minhas", auth, async (req, res) => {
+    try {
+        const userId = req.userId;
+        const minhasComunidades = await Community.find({ membros: userId });
+        res.json(minhasComunidades);
+    } catch (err) {
+        console.error("Erro ao buscar comunidades do usuário:", err);
+        res.status(500).json({ erro: "Erro ao buscar suas comunidades" });
+    }
+});
+
+
 // listar comunidades
 router.get("/", auth, async (req, res) => {
 
@@ -59,12 +115,14 @@ router.get("/", auth, async (req, res) => {
 
     const resultado = comunidades.map(c => ({
         ...c._doc,
-        participa: c.membros.includes(userId)
+        participa: c.membros.some(m => m.toString() === userId)
     }))
 
     res.json(resultado)
 
 });
+
+
 
 router.get("/recomendadas", auth, async (req, res) => {
 
@@ -98,7 +156,7 @@ router.get("/recomendadas", auth, async (req, res) => {
            
             {
                 $match: {
-                    membros: { $ne: userId }
+                     membros: { $not: { $in: [userId] } }
                 }
             },
 

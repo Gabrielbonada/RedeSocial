@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade - Detalhes</title>
+    <link rel="stylesheet" href="./css/feed.css"> <!-- Reutilizar estilos existentes -->
+    <link rel="stylesheet" href="./css/listacomunidade.css"> <!-- Reutilizar estilos existentes -->
+    <!-- Você pode criar um novo arquivo CSS para estilos específicos desta página, ex: ./css/comunidade-detalhes.css -->
+</head>
+<body>
+    <nav class="main-menu">
+        <!-- Inclua aqui o conteúdo da sua barra de navegação, similar ao seu indexcomunidade.html -->
+        <!-- Por exemplo, você pode usar um include ou copiar o HTML da nav -->
+    </nav>
+
+    <section class="content">
+        <div class="community-header">
+            <img id="community-detail-img" src="https://via.placeholder.com/150" alt="Imagem da Comunidade">
+            <h1 id="community-detail-name">Nome da Comunidade</h1>
+            <p id="community-detail-desc">Descrição da Comunidade</p>
+            <button id="join-community-btn" class="join-btn">Entrar</button>
+        </div>
+
+        <div class="community-posts">
+            <h2>Posts da Comunidade</h2>
+            <div id="posts-container"></div>
+        </div>
+    </section>
+
+    <script src="./js/menuProfile.js"></script> <!-- Se você tiver um script para o menu -->
+    <script>
+        // Função para obter o ID da comunidade da URL
+        function getCommunityIdFromUrl( ) {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        async function carregarDetalhesComunidade() {
+            const communityId = getCommunityIdFromUrl();
+            if (!communityId) {
+                document.getElementById('community-detail-name').innerText = 'Comunidade não encontrada';
+                document.getElementById('community-detail-desc').innerText = 'ID da comunidade não fornecido na URL.';
+                return;
+            }
+
+            const token = localStorage.getItem("token");
+            if (!token) {
+                alert("Você precisa estar logado para ver os detalhes da comunidade.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            try {
+                // Requisição para obter os detalhes da comunidade
+                const communityResponse = await fetch(`/comunidades/${communityId}`, {
+                    headers: {
+                        Authorization: "Bearer " + token
+                    }
+                });
+                const community = await communityResponse.json();
+
+                if (communityResponse.ok) {
+                    document.getElementById('community-detail-img').src = community.imagem || 'https://via.placeholder.com/150';
+                    document.getElementById('community-detail-name' ).innerText = community.nome;
+                    document.getElementById('community-detail-desc').innerText = community.descricao;
+
+                    // Lógica para o botão de entrar/sair na página de detalhes
+                    const joinBtn = document.getElementById('join-community-btn');
+                    joinBtn.innerText = community.participa ? "Sair" : "Entrar";
+                    joinBtn.onclick = async () => {
+                        await toggleComunidade(community._id, community.participa);
+                        // Após entrar/sair, recarrega os detalhes para atualizar o estado do botão
+                        carregarDetalhesComunidade();
+                    };
+                } else {
+                    throw new Error(community.erro || 'Erro ao carregar detalhes da comunidade');
+                }
+
+                // Requisição para obter os posts da comunidade
+                const postsResponse = await fetch(`/comunidades/${communityId}/posts`, { // Endpoint para posts
+                    headers: {
+                        Authorization: "Bearer " + token
+                    }
+                });
+                const posts = await postsResponse.json();
+
+                const postsContainer = document.getElementById('posts-container');
+                postsContainer.innerHTML = ''; // Limpa posts existentes
+
+                if (postsResponse.ok && posts.length > 0) {
+                    posts.forEach(post => {
+                        postsContainer.innerHTML += `
+                            <div class="post-card">
+                                <h3>${post.titulo}</h3>
+                                <p>${post.conteudo}</p>
+                                <!-- Adicione mais detalhes do post conforme necessário, como autor, data, imagem -->
+                            </div>
+                        `;
+                    });
+                } else if (postsResponse.ok && posts.length === 0) {
+                    postsContainer.innerHTML = '<p>Nenhum post encontrado nesta comunidade.</p>';
+                } else {
+                    throw new Error(posts.erro || 'Erro ao carregar posts da comunidade');
+                }
+
+            } catch (error) {
+                console.error("Erro ao carregar a comunidade:", error);
+                document.getElementById('community-detail-name').innerText = 'Erro ao carregar comunidade';
+                document.getElementById('community-detail-desc').innerText = error.message;
+                document.getElementById('posts-container').innerHTML = '<p>Não foi possível carregar os posts.</p>';
+            }
+        }
+
+        // Chamar a função ao carregar a página
+        carregarDetalhesComunidade();
+
+        // A função toggleComunidade precisa estar disponível globalmente ou ser importada
+        // Se ela estiver em outro arquivo JS, certifique-se de que ele seja carregado antes deste script.
+        // Exemplo de como ela pode ser (se não estiver já globalmente definida):
+        // window.toggleComunidade = async function (id, participa) { /* ... sua implementação ... */ };
+    </script>
+</body>
+</html>
