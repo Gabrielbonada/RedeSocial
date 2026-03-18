@@ -1,20 +1,24 @@
-async function carregarComunidades(){
+async function carregarComunidades() {
 
- const resposta = await fetch("/comunidades")
+    const resposta = await fetch("/comunidades", {
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("token")
+        }
+    })
 
- const comunidades = await resposta.json()
+    const comunidades = await resposta.json()
 
- const container = document.getElementById("lista-comunidades")
+    const container = document.getElementById("comunidadesexistentes")
 
- container.innerHTML = ""
+    container.innerHTML = ""
 
- comunidades.forEach(com => {
+    comunidades.forEach(com => {
 
-   container.innerHTML += `
+        container.innerHTML += `
    
   <div class="community-card">
 
-    <img src= ${com.imagem} class="community-img">
+   <img src="${com.imagem || 'https://via.placeholder.com/150'}" class="community-img">
 
     <div class="content-right">
 
@@ -25,8 +29,8 @@ async function carregarComunidades(){
             </p>
         </div>
 
-        <button class="join-btn">
-            Entrar
+        <button class="join-btn" onclick="toggleComunidade('${com._id}', ${com.participa})">
+            ${com.participa ? "Sair" : "Entrar"}
         </button>
 
     </div>
@@ -35,8 +39,36 @@ async function carregarComunidades(){
    
    `
 
- })
-
+    })
 }
 
+window.toggleComunidade = async function(id, participa){
+
+    const token = localStorage.getItem("token")
+
+    if (!token) {
+        alert("Você precisa estar logado")
+        window.location.href = "login.html"
+        return
+    }
+
+    const url = participa
+        ? `/comunidades/${id}/sair`
+        : `/comunidades/${id}/entrar`
+
+    await fetch(url,{
+        method:"POST",
+        headers:{
+            Authorization:"Bearer "+token
+        }
+    })
+
+    alert(participa ? "Saiu da comunidade" : "Entrou na comunidade")
+
+    carregarRelacionadas()
+    carregarComunidades()
+}
+
+// inicialização
+carregarRelacionadas()
 carregarComunidades()
