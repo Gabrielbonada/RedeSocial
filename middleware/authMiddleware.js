@@ -10,7 +10,7 @@ module.exports = function (req, res, next) {
         return res.status(401).json({ erro: "Token não enviado" });
     }
 
-    // 🔥 remove o "Bearer "
+
     const token = authHeader.split(" ")[1];
 
     try {

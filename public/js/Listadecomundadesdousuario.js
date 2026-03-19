@@ -8,7 +8,7 @@ async function carregarComunidadesDoUsuario() {
     }
 
     try {
-        const resposta = await fetch("/comunidades/minhas", { // Supondo um endpoint /comunidades/minhas
+        const resposta = await fetch("/comunidades/", { 
             headers: {
                 Authorization: "Bearer " + token
             }

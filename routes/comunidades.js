@@ -29,7 +29,7 @@ router.post("/:id/sair", auth, async (req, res) => {
     }
 });
 // Importe seu modelo de Post, se ainda não o fez
-// const Post = require("../models/post"); // Certifique-se de que o caminho está correto
+ const Post = require("../models/post"); // Certifique-se de que o caminho está correto
 
 // Rota para obter os posts de uma comunidade
 router.get("/:id/posts", auth, async (req, res) => {
@@ -92,7 +92,7 @@ router.post("/create", async (req, res) => {
 
 });
 
-
+/*
 // Nova rota para listar comunidades que o usuário participa
 router.get("/minhas", auth, async (req, res) => {
     try {
@@ -104,7 +104,7 @@ router.get("/minhas", auth, async (req, res) => {
         res.status(500).json({ erro: "Erro ao buscar suas comunidades" });
     }
 });
-
+*/
 
 // listar comunidades
 router.get("/", auth, async (req, res) => {
