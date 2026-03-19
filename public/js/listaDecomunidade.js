@@ -28,11 +28,19 @@ async function carregarComunidades() {
                 ${com.descricao}
             </p>
         </div>
+        
 
+        <div >
+
+        <button class="join-btn" onclick=""  onclick="acessarComunidade('${com._id}')">
+              Ver Comunidade
+        </button>
         <button class="join-btn" onclick="toggleComunidade('${com._id}', ${com.participa})">
             ${com.participa ? "Sair" : "Entrar"}
         </button>
 
+
+        <div/>
     </div>
 
 </div>
@@ -42,7 +50,7 @@ async function carregarComunidades() {
     })
 }
 
-window.toggleComunidade = async function(id, participa){
+window.toggleComunidade = async function (id, participa) {
 
     const token = localStorage.getItem("token")
 
@@ -56,17 +64,14 @@ window.toggleComunidade = async function(id, participa){
         ? `/comunidades/${id}/sair`
         : `/comunidades/${id}/entrar`
 
-    await fetch(url,{
-        method:"POST",
-        headers:{
-            Authorization:"Bearer "+token
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            Authorization: "Bearer " + token
         }
     })
 
     alert(participa ? "Saiu da comunidade" : "Entrou na comunidade")
-
-    carregarRelacionadas()
-    carregarComunidades()
 }
 
 // inicialização

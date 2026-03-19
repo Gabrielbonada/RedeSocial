@@ -31,9 +31,9 @@ async function carregarRelacionadas() {
             </p>
         </div>
 
-        <button class="join-btn">
-            Entrar
-        </button>
+       <button class="join-btn" onclick="toggleComunidade('${com._id}', false)">
+    Entrar
+</button>
 
     </div>
 
