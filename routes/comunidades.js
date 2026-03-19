@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const Community = require("../models/comunidade");
-const auth = require("../middleware/auth")
+const auth = require("../middleware/authMiddleware.js")
 
 
 router.post("/:id/entrar", auth, async (req, res) => {
