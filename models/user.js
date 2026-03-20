@@ -1,10 +1,16 @@
 const mongoose = require("mongoose");
 
+// ⚠️  Substitua seu models/user.js por este arquivo
 const UserSchema = new mongoose.Schema({
 
     nome: {
         type: String,
         required: true
+    },
+
+    username: {
+        type: String,
+        default: ""
     },
 
     email: {
@@ -18,12 +24,25 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
 
-    foto: String,
+    foto: {
+        type: String,
+        default: ""
+    },
 
-    bio: String,
+    bio: {
+        type: String,
+        default: ""
+    },
 
-    seguidores: [String]
+    link: {
+        type: String,
+        default: ""
+    },
 
-});
+    seguidores: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+
+    seguindo:   [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }]
+
+}, { timestamps: true });
 
 module.exports = mongoose.model("User", UserSchema);
